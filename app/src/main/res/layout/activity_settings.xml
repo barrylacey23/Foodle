@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.farre.foodle.SettingsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="?attr/actionModeCloseDrawable"
+            android:id="@+id/backButton" />
+
+        <Switch
+            android:text="Coeliac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Coeliac"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
+
+        <Switch
+            android:text="Diabetic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Diabetic"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
+
+        <Switch
+            android:text="Vegan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Vegan"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
+
+        <Button
+            android:id="@+id/buttonReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Reset Password" />
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Delete Account" />
+
+    </LinearLayout>
+</RelativeLayout>
