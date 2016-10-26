@@ -19,6 +19,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView textViewUserEmail;
     private Button buttonLogout;
     private Button buttonSettings;
+    private Button buttonSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +45,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         textViewUserEmail = (TextView) findViewById(R.id.textViewUserEmail);
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
         buttonSettings = (Button) findViewById(R.id.buttonSettings);
+        buttonSearch = (Button) findViewById(R.id.buttonSearch);
         //displaying logged in user name
         textViewUserEmail.setText("Welcome "+user.getEmail());
 
         //adding listener to button
         buttonLogout.setOnClickListener(this);
         buttonSettings.setOnClickListener(this);
+        buttonSearch.setOnClickListener(this);
     }
 
     @Override
@@ -66,6 +69,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         if(view == buttonSettings) {
             finish();
             startActivity(new Intent(this, SettingsActivity.class));
+        }
+        if(view == buttonSearch) {
+            finish();
+            startActivity(new Intent(this, SwipeActivity.class));
         }
     }
 }

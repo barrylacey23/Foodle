@@ -2,20 +2,29 @@ package com.example.farre.foodle;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import static com.example.farre.foodle.R.id.imageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText editTextEmail;
     private EditText editTextPassword;
     private Button buttonSignup;
+    private ImageView imageview2;
 
     private TextView textViewSignin;
 
@@ -32,10 +42,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //defining firebaseauth object
     private FirebaseAuth firebaseAuth;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
         //initializing firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();
@@ -49,6 +61,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //and open profile activity
             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
         }
+
+        String uri = "@drawable/foodle2";  // where myresource (without the extension) is the file
+        int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+        imageview2 = (ImageView)findViewById(R.id.imageView2);
+        imageview2.setImageDrawable(getApplicationContext().getDrawable(R.drawable.foodle2));
+
+
+
 
         //initializing views
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
